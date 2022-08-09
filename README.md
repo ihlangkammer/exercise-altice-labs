@@ -1,4 +1,9 @@
-# exercise-altice-labs Project
+# Exercise Altice Labs
+
+Projeto desenvolvido para o processo seletivo da Altice Labs.
+Foi utilizado o https://code.quarkus.io/ para configuração inicial do projeto.
+
+## Documentação do Quarkus
 
 This project uses Quarkus, the Supersonic Subatomic Java Framework.
 
