@@ -1,5 +1,7 @@
 package exercise.altice.labs.controller;
 
+import exercise.altice.labs.entity.AlticeLabs;
+
 import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
@@ -7,22 +9,26 @@ public class AlticeLabsController {
 
     CacheController cache = new CacheController();
 
-    public String calculateSequence(int n) {
+
+    public AlticeLabs calculateSequence(int n) {
+        AlticeLabs alticeLabs = new AlticeLabs(n);
         int result = 0;
+
         if(n <= 2) {
             result = getValue(n);
         } else {
             String value = cache.getElement(n);
 
             if (value != "Not exist") {
-                return value;
+                alticeLabs.setValue(Integer.parseInt(value));
             } else {
                 result = calculateValueA(n);
                 cache.putElement(n, String.valueOf(result));
             }
         }
 //        System.out.println("RESULTADO - " + result);
-        return String.valueOf(result);
+        alticeLabs.setValue(result);
+        return alticeLabs;
     }
 
     public int calculateValueA(int n) {

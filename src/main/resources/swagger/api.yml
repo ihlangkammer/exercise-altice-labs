@@ -1,0 +1,47 @@
+swagger: '2.0'
+
+schemes:
+  - http
+  - https
+
+host: localhost:8080
+basePath: /alticci/n
+
+info:
+  version: 1.0.0
+  title: Altice Labs
+  description: Documentação para consultar o valor da sequência
+  termsOfService: http://localhost:8080/alticci/n
+
+paths:
+  '/pessoas/{n}':
+    get:
+      summary: Consultar o valor da sequência
+      description: Consultar o valor da sequência
+      produces:
+        - application/json
+      operationId: consultarPeloCodigo
+      parameters:
+        - in: path
+          name: n
+          description: valor de n
+          required: true
+          type: integer
+          format: int64
+      responses:
+        200:
+          description: OK
+          schema:
+            $ref: '#/definitions/ResponsePessoa'
+        400:
+          description: Requisição inválida
+          schema:
+            $ref: '#/definitions/ResponseErro'
+        401:
+          description: Requisição não autorizada
+          schema:
+            $ref: '#/definitions/ResponseErro'
+        500:
+          description: Erro interno do servidor
+          schema:
+            $ref: '#/definitions/ResponseErro'

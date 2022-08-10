@@ -1,15 +1,21 @@
 package exercise.altice.labs.resource;
 
 import exercise.altice.labs.controller.AlticeLabsController;
+import exercise.altice.labs.entity.AlticeLabs;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import javax.ws.rs.core.Response;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.Set;
 
 @Path("/alticci")
+@Produces(MediaType.APPLICATION_JSON)
+@Consumes(MediaType.APPLICATION_JSON)
 public class AlticeLabsResource {
 
     private AlticeLabsController controller = new AlticeLabsController();
+    private Set<AlticeLabs> alticeLabs = Collections.newSetFromMap(Collections.synchronizedMap(new LinkedHashMap<>()));
 
     @GET
     @Produces(MediaType.TEXT_PLAIN)
@@ -19,7 +25,9 @@ public class AlticeLabsResource {
 
     @GET
     @Path("/{n}")
-    public String calculateSequence(@PathParam("n") int nValue) {
-        return controller.calculateSequence(nValue);
+    public Set<AlticeLabs> calculateSequence (
+            @PathParam("n") int nValue) {
+        alticeLabs.add(controller.calculateSequence(nValue));
+        return alticeLabs;
     }
 }
