@@ -8,14 +8,19 @@ import static org.hamcrest.CoreMatchers.is;
 
 @QuarkusTest
 public class AlticeLabsResourceTest {
-
     @Test
-    public void testHelloEndpoint() {
+    public void testCalculateSequenceEndpoint() {
         given()
-          .when().get("/hello")
-          .then()
-             .statusCode(200)
-             .body(is("Hello from RESTEasy Reactive"));
+                .when().get("/alticci/10")
+                .then()
+                .statusCode(200)
+                .body(is("9"));
     }
 
+    public void failedTestCalculateSequenceEndpoint() {
+        given()
+                .when().get("/alticci/p")
+                .then()
+                .statusCode(404);
+    }
 }
