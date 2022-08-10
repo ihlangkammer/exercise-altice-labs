@@ -14,7 +14,7 @@ info:
   termsOfService: http://localhost:8080/alticci/n
 
 paths:
-  '/pessoas/{n}':
+  '/alticci/{n}':
     get:
       summary: Consultar o valor da sequência
       description: Consultar o valor da sequência
@@ -33,15 +33,7 @@ paths:
           description: OK
           schema:
             $ref: '#/definitions/ResponsePessoa'
-        400:
+        404:
           description: Requisição inválida
-          schema:
-            $ref: '#/definitions/ResponseErro'
-        401:
-          description: Requisição não autorizada
-          schema:
-            $ref: '#/definitions/ResponseErro'
-        500:
-          description: Erro interno do servidor
           schema:
             $ref: '#/definitions/ResponseErro'

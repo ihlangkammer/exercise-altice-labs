@@ -8,8 +8,7 @@ import javax.enterprise.context.ApplicationScoped;
 public class AlticeLabsController {
 
     CacheController cache = new CacheController();
-
-
+    
     public AlticeLabs calculateSequence(int n) {
         AlticeLabs alticeLabs = new AlticeLabs(n);
         int result = 0;

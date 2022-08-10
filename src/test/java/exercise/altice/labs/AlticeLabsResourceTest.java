@@ -14,7 +14,7 @@ public class AlticeLabsResourceTest {
 //                .when().get("/alticci/10")
 //                .then()
 //                .statusCode(200)
-//                .body(is("9"));
+//                .body(is("{n:10, value:9"));
 //    }
 
 }
