@@ -16,8 +16,10 @@ docker build -f src/main/docker/Dockerfile.jvm -t quarkus/exercise-altice-labs-j
 ```shell script
 docker run -i --rm -p 8080:8080 quarkus/exercise-altice-labs-jvm 
 ```
-
-
+4º Passo: //Para acessar no browser
+```shell script
+http://localhost:8080/alticci/{n}
+```
 
 
 ### Documentação oficial Quarkus
