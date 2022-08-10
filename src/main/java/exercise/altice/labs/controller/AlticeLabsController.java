@@ -7,7 +7,7 @@ public class AlticeLabsController {
 
     CacheController cache = new CacheController();
 
-    public int calculateSequence(int n) {
+    public String calculateSequence(int n) {
         int result = 0;
         if(n <= 2) {
             result = getValue(n);
@@ -15,14 +15,14 @@ public class AlticeLabsController {
             String value = cache.getElement(n);
 
             if (value != "Not exist") {
-                return Integer.parseInt(value);
+                return value;
             } else {
                 result = calculateValueA(n);
                 cache.putElement(n, String.valueOf(result));
             }
         }
-        System.out.println("RESULTADO - " + result);
-        return result;
+//        System.out.println("RESULTADO - " + result);
+        return String.valueOf(result);
     }
 
     public int calculateValueA(int n) {
